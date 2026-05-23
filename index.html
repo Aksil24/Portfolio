@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Portfolio BTS SIO SISR — Aksil OUKIL</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght=0,400;0,700;1,400&family=DM+Mono:wght=300;400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #0a0a0a; --bg2: #111; --bg3: #0d0d0d;
+      --text: #f0ece3; --muted: #7a7060;
+      --accent: #2ba8c6; --accent2: #32b8c6;
+      --border: rgba(43,168,198,0.18);
+      --mono: 'DM Mono', monospace;
+      --serif: 'Playfair Display', serif;
+    }
+    html { scroll-behavior: smooth; }
+    body { background: var(--bg); color: var(--text); font-family: var(--mono); font-size: 14px; line-height: 1.7; overflow-x: hidden; }
+    body::before {
+      content: ''; position: fixed; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none; z-index: 999; opacity: 0.4;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 1.2rem 3rem;
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(16px);
+      background: rgba(10,10,10,0.85);
+    }
+    .nav-logo { font-family: var(--serif); font-size: 1.1rem; color: var(--accent); }
+    .nav-links { display: flex; gap: 2rem; flex-wrap: wrap; }
+    .nav-links a { color: var(--muted); text-decoration: none; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; transition: color 0.3s; }
+    .nav-links a:hover { color: var(--accent2); }
+
+    /* HERO */
+    .hero { min-height: 100vh; display: grid; place-items: center; padding: 8rem 4rem 4rem; position: relative; overflow: hidden; }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 60% 50% at 70% 50%, rgba(43,168,198,0.07) 0%, transparent 70%),
+                  radial-gradient(ellipse 40% 60% at 20% 80%, rgba(43,168,198,0.04) 0%, transparent 60%);
+    }
+    .hero-content { position: relative; max-width: 900px; width: 100%; }
+    .hero-tag { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 1.5rem; opacity: 0; animation: fadeUp 0.8s 0.2s forwards; }
+    .hero-title { font-family: var(--serif); font-size: clamp(3rem, 8vw, 6.5rem); line-height: 1.05; font-weight: 700; margin-bottom: 1.5rem; opacity: 0; animation: fadeUp 0.8s 0.4s forwards; }
+    .hero-title em { font-style: italic; color: var(--accent); }
+    .hero-sub { font-size: 14px; color: var(--muted); max-width: 500px; line-height: 1.8; margin-bottom: 3rem; opacity: 0; animation: fadeUp 0.8s 0.6s forwards; }
+    .hero-cta { display: flex; gap: 1.2rem; align-items: center; flex-wrap: wrap; opacity: 0; animation: fadeUp 0.8s 0.8s forwards; }
+    .scroll-line { position: absolute; bottom: 2.5rem; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 0.5rem; color: var(--muted); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; opacity: 0; animation: fadeUp 1s 1.2s forwards; }
+    .scroll-line::after { content: ''; width: 1px; height: 50px; background: linear-gradient(to bottom, var(--muted), transparent); animation: pulse 2s infinite; }
+
+    /* BOUTONS */
+    .btn { display: inline-block; padding: 0.85rem 2rem; font-family: var(--mono); font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; text-decoration: none; border: 1px solid var(--accent); color: var(--accent); transition: all 0.3s; position: relative; overflow: hidden; cursor: pointer; background: transparent; z-index: 1; }
+    .btn::before { content: ''; position: absolute; inset: 0; background: var(--accent); transform: translateX(-100%); transition: transform 0.3s; z-index: -1; }
+    .btn:hover { color: var(--bg); }
+    .btn:hover::before { transform: translateX(0); }
+    .btn-ghost { border-color: var(--border); color: var(--muted); }
+    .btn-ghost:hover { color: var(--text); border-color: var(--muted); }
+    .btn-ghost::before { background: rgba(255,255,255,0.05); }
+
+    /* SECTIONS */
+    section { padding: 7rem 4rem; }
+    .section-inner { max-width: 1100px; margin: 0 auto; }
+    .section-label { font-size: 11px; letter-spacing: 0.25em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; }
+    .section-title { font-family: var(--serif); font-size: clamp(2rem, 4vw, 3.5rem); font-weight: 700; line-height: 1.1; margin-bottom: 3rem; }
+    .alt-bg { background: var(--bg2); }
+
+    /* À PROPOS */
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center; }
+    .about-text p { color: var(--muted); line-height: 1.9; margin-bottom: 1.2rem; }
+    .about-text p strong { color: var(--text); }
+    .skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); border: 1px solid var(--border); }
+    .skill-item { background: var(--bg2); padding: 1.1rem 1.4rem; font-size: 12px; color: var(--muted); transition: all 0.3s; display: flex; align-items: center; gap: 0.6rem; }
+    .skill-item::before { content: '▸'; color: var(--accent); font-size: 10px; }
+    .skill-item:hover { background: rgba(43,168,198,0.05); color: var(--text); }
+
+    /* CARDS GRID */
+    .cards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(330px, 1fr)); gap: 1px; background: var(--border); border: 1px solid var(--border); }
+    
+    .card { display: block; text-decoration: none; background: var(--bg2); padding: 2rem; transition: all 0.4s; position: relative; overflow: hidden; cursor: pointer; color: inherit; }
+    .card::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, var(--accent), transparent); transform: scaleX(0); transform-origin: left; transition: transform 0.4s; }
+    .card:hover { background: rgba(43,168,198,0.06); }
+    .card:hover::after { transform: scaleX(1); }
+    .card-label { font-size: 10px; letter-spacing: 0.2em; color: var(--accent); margin-bottom: 1rem; opacity: 0.7; text-transform: uppercase; }
+    .card-title { font-family: var(--serif); font-size: 1.3rem; margin-bottom: 0.7rem; color: var(--text); }
+    .card-desc { color: var(--muted); font-size: 13px; line-height: 1.8; margin-bottom: 1.2rem; }
+    .card-missions { font-size: 12px; color: var(--muted); line-height: 2; margin-bottom: 1.2rem; }
+    .card-missions span { color: var(--accent); }
+    .tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .tag { font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.25rem 0.6rem; border: 1px solid var(--border); color: var(--muted); }
+    .click-info { font-size: 11px; color: var(--accent); display: block; margin-top: 15px; letter-spacing: 0.05em; text-transform: uppercase; }
+
+    /* ACCORDION (Veille) */
+    .accordion { border: 1px solid var(--border); }
+    .accordion-item { border-bottom: 1px solid var(--border); }
+    .accordion-item:last-child { border-bottom: none; }
+    .accordion-header { padding: 1.4rem 2rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; transition: background 0.3s; }
+    .accordion-header:hover { background: rgba(43,168,198,0.03); }
+    .accordion-header h3 { font-family: var(--serif); font-size: 1.1rem; color: var(--text); }
+    .accordion-header span { color: var(--accent); font-size: 1.2rem; transition: transform 0.3s; }
+    .accordion-header.open span { transform: rotate(45deg); }
+    .accordion-body { display: none; padding: 0 2rem 1.8rem; }
+    .accordion-body.open { display: block; }
+    .accordion-body p { color: var(--muted); line-height: 1.9; margin-bottom: 1rem; font-size: 13px; }
+    .accordion-body ul { list-style: none; padding: 0; }
+    .accordion-body ul li { color: var(--muted); font-size: 13px; line-height: 2; padding-left: 1.2rem; position: relative; }
+    .accordion-body ul li::before { content: '▸'; color: var(--accent); position: absolute; left: 0; font-size: 10px; top: 5px; }
+
+    /* STAGES TIMELINE */
+    .stage-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); border: 1px solid var(--border); }
+
+    /* CONTACT */
+    .contact-inner { max-width: 700px; margin: 0 auto; text-align: center; }
+    .contact-inner p { color: var(--muted); margin-bottom: 2rem; line-height: 1.9; }
+    .contact-links { display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap; margin-top: 2rem; }
+    .contact-link { display: inline-flex; align-items: center; gap: 0.5rem; width: 250px; padding: 1rem; border: 1px solid var(--border); color: var(--muted); text-decoration: none; transition: all 0.3s; }
+    .contact-link svg { width: 20px; height: 20px; stroke: var(--accent); }
+    .contact-link:hover { border-color: var(--accent); color: var(--text); background: rgba(43,168,198,0.03); }
+
+    /* FOOTER */
+    footer { padding: 3rem 4rem; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 2rem; font-size: 12px; color: var(--muted); }
+
+    /* ANIMATIONS */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 0.5; }
+      50% { opacity: 1; }
+    }
+    .reveal { opacity: 0; }
+    .reveal.visible { animation: fadeUp 0.8s forwards; }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { gap: 1rem; }
+      section { padding: 3.5rem 2rem; }
+      .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .hero { padding: 4rem 2rem 2rem; }
+      .stage-grid { grid-template-columns: 1fr; }
+      footer { flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="nav-logo">Aksil OUKIL</div>
+    <div class="nav-links">
+      <a href="#about">À propos</a>
+      <a href="#veille">Veille technologique</a>
+      <a href="#stages">Expérience</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <section id="hero" class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <div class="hero-tag reveal">BTS SIO · SISR · 2026</div>
+      <h1 class="hero-title reveal">Aksil <em>OUKIL</em></h1>
+      <p class="hero-sub reveal">Étudiant en 2ème année de BTS SIO option SISR. Passionné par les réseaux et les infrastructures système. Je recherche une alternance pour approfondir mes compétences en administration système et cybersécurité.</p>
+      <div class="hero-cta reveal">
+        <a href="#stages" class="btn">Voir mes projets</a>
+        <a href="#contact" class="btn btn-ghost">Me contacter</a>
+      </div>
+    </div>
+    <div class="scroll-line">
+      <span>SCROLL</span>
+    </div>
+  </section>
+
+  <section id="about" class="alt-bg">
+    <div class="section-inner">
+      <div class="section-label reveal">Profil</div>
+      <h2 class="section-title reveal">À <em style="font-style:italic; color:var(--accent)">propos</em> de moi</h2>
+      
+      <div class="about-grid">
+        <div class="about-text">
+          <p class="reveal">Je suis <strong>Aksil OUKIL</strong>, actuellement en 2ème année de BTS Services Informatiques aux Organisations, spécialisé en Solutions d'Infrastructure, Systèmes et Réseaux (SISR).</p>
+          <p class="reveal">Ma <strong>polyvalence</strong> et ma <strong>capacité à m'adapter</strong> à différents environnements me distinguent. Je suis motivé et dynamique, avec un excellent esprit d'équipe et une détermination constante à relever de nouveaux défis.</p>
+          <p class="reveal">En recherche d'une <strong>alternance</strong> pour concrétiser les compétences acquises et poursuivre mes études en <strong>Bachelor Administrateur d'Infrastructures Sécurisées</strong>.</p>
+        </div>
+
+        <div class="skills-grid reveal">
+          <div class="skill-item">Virtualisation (VMware, VMs Linux/Windows)</div>
+          <div class="skill-item">Administration LAN/VLAN</div>
+          <div class="skill-item">Configuration de switches</div>
+          <div class="skill-item">Paramétrages caméras IP</div>
+          <div class="skill-item">Active Directory & DNS</div>
+          <div class="skill-item">DHCP, NTP, GLPI, GPO</div>
+          <div class="skill-item">CDN Google Cloud</div>
+          <div class="skill-item">Gestion de incidents IT</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="veille">
+    <div class="section-inner">
+      <div class="section-label reveal">Expertise</div>
+      <h2 class="section-title reveal">Veille <em style="font-style:italic; color:var(--accent)">technologique</em></h2>
+      <p class="reveal" style="color:var(--muted); max-width:640px; margin-bottom:3.5rem; line-height:1.9;">
+        Je m'intéresse activement aux <strong style="color:var(--text)">dernières tendances en cybersécurité et infrastructure IT</strong>. Voici mes sujets de veille favoris :
+      </p>
+
+      <div class="accordion reveal">
+        
+        <div class="accordion-item">
+          <div class="accordion-header" onclick="toggleAccordion(this)">
+            <h3>🔐 Passkeys : L'authentification sans mot de passe</h3>
+            <span>+</span>
+          </div>
+          <div class="accordion-body">
+            <p>Les <strong style="color:var(--text)">Passkeys</strong> représentent une <strong style="color:var(--text)">révolution majeure en matière d'authentification</strong>. Contrairement aux mots de passe traditionnels, les passkeys utilisent la <strong style="color:var(--text)">cryptographie asymétrique</strong> pour une sécurité maximale.</p>
+            <ul>
+              <li><strong style="color:var(--text)">Zéro transmission de secrets</strong> — Seule la clé publique est partagée, jamais la clé privée</li>
+              <li><strong style="color:var(--text)">Authentification biométrique</strong> — Intégration native d'empreinte digitale et reconnaissance faciale</li>
+              <li><strong style="color:var(--text)">Phishing-proof</strong> — Impossible de phisher ce qu'on ne tape jamais au clavier</li>
+              <li><strong style="color:var(--text)">Synchronisation cross-device</strong> — Passkeys stockées dans le cloud de manière sécurisée</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <div class="accordion-header" onclick="toggleAccordion(this)">
+            <h3>🎯 Enjeux et Impact pour l'infrastructure (SISR)</h3>
+            <span>+</span>
+          </div>
+          <div class="accordion-body">
+            <p>L'intérêt majeur des Passkeys pour un administrateur système et réseau réside dans le <strong style="color:var(--text)">renforcement drastique de la sécurité des identités</strong> au sein des parcs informatiques :</p>
+            <ul>
+              <li><strong style="color:var(--text)">Cryptographie asymétrique</strong> — Remplacement des secrets partagés par un couple de clés (publique/privée)</li>
+              <li><strong style="color:var(--text)">Liaison biométrique locale</strong> — Validation de l'accès via l'empreinte digitale ou la reconnaissance faciale de l'appareil</li>
+              <li><strong style="color:var(--text)">Neutralisation du Phishing</strong> — N'ayant aucun mot de passe tapé au clavier, les cyberattaques par hameçonnage et l'usurpation d'identité deviennent techniquement impossibles à 100%</li>
+              <li><strong style="color:var(--text)">Réduction des coûts</strong> — Diminution drastique des demandes de support liées aux pertes ou réinitialisations de mots de passe</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="stages" class="alt-bg">
+    <div class="section-inner">
+      <div class="section-label reveal">Expériences professionnelles</div>
+      <h2 class="section-title reveal">Stages <em style="font-style:italic; color:var(--accent)">en entreprise</em></h2>
+      <p class="reveal" style="color:var(--muted); max-width:640px; margin-bottom:3.5rem; line-height:1.9;">
+        Au cours de mon BTS SIO, j'ai effectué <strong style="color:var(--text)">2 stages en entreprise</strong> afin de me familiariser avec le monde professionnel et développer des compétences concrètes.
+      </p>
+      <div class="stage-grid">
+
+        <a href="https://drive.google.com/file/d/1XQl1LFRgaNPRNd9tCtVOLvVb7temMOlC/view?usp=sharing" target="_blank" class="card reveal">
+          <div class="card-label">Stage 1 · 1ère année BTS</div>
+          <h3 class="card-title">France Security</h3>
+          <p class="card-desc" style="margin-bottom:0.5rem;">📍 Saint-Ouen — Agence de sécurité privée</p>
+          <p class="card-desc">Stage orienté audit de sécurité de l'infrastructure et gestion de parc informatique.</p>
+          <div class="card-missions">
+            <span>▸</span> Audit complet de la couverture et sécurité du réseau Wi-Fi<br>
+            <span>▸</span> Réalisation de l'inventaire matériel et analyse du BYOD<br>
+            <span>▸</span> Durcissement de la sécurité logique des postes de travail
+          </div>
+          <div class="tags">
+            <span class="tag">Audit Wi-Fi</span>
+            <span class="tag">Inventaire parc</span>
+            <span class="tag">Sécurisation endpoints</span>
+          </div>
+          <span class="click-info" style="color:var(--accent2)">Ouvrir le rapport de stage original ↗</span>
+        </a>
+
+        <a href="https://drive.google.com/file/d/1HLvXjRiPQaabeaR_JBnPIYXwvQHtWbjC/view?usp=sharing" target="_blank" class="card reveal">
+          <div class="card-label">Stage 2 · 2ème année BTS</div>
+          <h3 class="card-title">SQLI Digital Experience</h3>
+          <p class="card-desc" style="margin-bottom:0.5rem;">📍 Levallois-Perret — Agence européenne du numérique</p>
+          <p class="card-desc">Intégration du pôle Support IT & Infrastructures pour la gestion d'un parc multi-OS.</p>
+          <div class="card-missions">
+            <span>▸</span> Traitement d'incidents et demandes d'assistance (Niveaux 1 & 2)<br>
+            <span>▸</span> Supervision opérationnelle et monitoring du parc informatique<br>
+            <span>▸</span> Conception d'un outil d'analyse et de suivi des indicateurs helpdesk
+          </div>
+          <div class="tags">
+            <span class="tag">Support IT N1/N2</span>
+            <span class="tag">ITSM Helpdesk</span>
+            <span class="tag">Gestion d'incidents</span>
+          </div>
+          <span class="click-info" style="color:var(--accent2)">Ouvrir le rapport de stage original ↗</span>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="contact-inner reveal">
+      <div class="section-label">Contact</div>
+      <h2 class="section-title">Contactez<br><em style="font-style:italic; color:var(--accent)">moi</em></h2>
+      <p>Disponible pour une alternance. N'hésitez pas à me contacter !</p>
+      <a href="javascript:void(0)" onclick="window.location='mai'+'lto:'+'24aksil'+'@'+'gmail.com'" class="btn" style="display:inline-block; margin-bottom:0.5rem;">
+        24aksil&#64;gmail.com
+      </a>
+      <div class="contact-links">
+        <a href="tel:+33769691672" class="contact-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6.08 6.08l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          07 69 69 16 72
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <span>&#169; 2026 Aksil OUKIL. Tous droits réservés.</span>
+    <span>BTS SIO SISR · IRIS Paris 17 · Drancy, 93700</span>
+  </footer>
+
+  <script>
+    // Scroll reveal
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((e, i) => {
+        if (e.isIntersecting) setTimeout(() => e.target.classList.add('visible'), i * 60);
+      });
+    }, { threshold: 0.08 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // Nav active
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-links a');
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(s => { if (window.scrollY >= s.offsetTop - 200) current = s.id; });
+      navLinks.forEach(a => { a.style.color = a.getAttribute('href') === '#' + current ? 'var(--accent2)' : ''; });
+    });
+
+    // Accordion
+    function toggleAccordion(header) {
+      const body = header.nextElementSibling;
+      const isOpen = header.classList.contains('open');
+      document.querySelectorAll('.accordion-header').forEach(h => { h.classList.remove('open'); h.nextElementSibling.classList.remove('open'); });
+      if (!isOpen) { header.classList.add('open'); body.classList.add('open'); }
+    }
+  </script>
+</body>
+</html>
