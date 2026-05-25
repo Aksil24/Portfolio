@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rapport de Stage - Aksil OUKIL - BEERUS TECH</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Calibri', Arial, sans-serif; line-height: 1.6; color: #333; }
+        
+        .cover-page {
+            page-break-after: always;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(135deg, #0f2342 0%, #1a3a52 100%);
+            color: white;
+            padding: 2rem;
+        }
+        
+        .cover-page h1 { font-size: 2.5rem; margin-bottom: 1rem; font-weight: bold; }
+        .cover-page .subtitle { font-size: 1.3rem; margin-bottom: 3rem; font-style: italic; }
+        .cover-page .company-logo { font-size: 2rem; margin-bottom: 2rem; color: #2ba8c6; }
+        .cover-page .info-box {
+            background: rgba(255,255,255,0.1);
+            padding: 2rem;
+            border-radius: 8px;
+            margin-top: 3rem;
+            border-left: 4px solid #2ba8c6;
+        }
+        .cover-page .info-box p { margin: 0.5rem 0; font-size: 1.1rem; }
+        
+        .page {
+            page-break-after: always;
+            padding: 3rem;
+            min-height: 100vh;
+        }
+        
+        h1 { color: #0f2342; font-size: 2rem; margin-bottom: 1.5rem; border-bottom: 3px solid #2ba8c6; padding-bottom: 0.5rem; }
+        h2 { color: #1a3a52; font-size: 1.5rem; margin-top: 2rem; margin-bottom: 1rem; border-left: 4px solid #2ba8c6; padding-left: 1rem; }
+        h3 { color: #2ba8c6; font-size: 1.2rem; margin-top: 1.5rem; margin-bottom: 0.8rem; }
+        
+        p { margin-bottom: 1rem; text-align: justify; }
+        ul, ol { margin-left: 2rem; margin-bottom: 1rem; }
+        li { margin-bottom: 0.5rem; }
+        
+        .section-intro { background: #f0f7fb; padding: 1.5rem; border-radius: 8px; margin-bottom: 2rem; border-left: 4px solid #2ba8c6; }
+        .toc { background: #f0f7fb; padding: 1.5rem; border-radius: 8px; margin-bottom: 2rem; }
+        .toc ol { margin-left: 2rem; }
+        .toc li { margin-bottom: 0.8rem; }
+        
+        @media print { body { color: #000; } .page { padding: 2.5cm; } }
+    </style>
+</head>
+<body>
+    <!-- PAGE DE COUVERTURE -->
+    <div class="cover-page">
+        <div class="company-logo">☁️ BEERUS TECH</div>
+        <h1>RAPPORT DE STAGE</h1>
+        <p class="subtitle">Infrastructure Cloud - 2ème année BTS SIO</p>
+        
+        <div class="info-box">
+            <p><strong>Étudiant :</strong> Aksil OUKIL</p>
+            <p><strong>Entreprise :</strong> BEERUS TECH</p>
+            <p><strong>Localisation :</strong> Saint Mandé (94)</p>
+            <p><strong>Période :</strong> 24 novembre 2025 au 26 décembre 2025 (5 semaines)</p>
+            <p><strong>Tuteur :</strong> Samy Hamitouche</p>
+            <p><strong>Année :</strong> 2025</p>
+        </div>
+    </div>
+
+    <!-- TABLE DES MATIÈRES -->
+    <div class="page">
+        <h1>Table des Matières</h1>
+        <div class="toc">
+            <ol>
+                <li>Introduction</li>
+                <li>BEERUS TECH</li>
+                <li>Déroulement du stage</li>
+                <li>Ce que j'ai découvert</li>
+                <li>Conclusion</li>
+            </ol>
+        </div>
+    </div>
+
+    <!-- INTRODUCTION -->
+    <div class="page">
+        <h1>1. Introduction</h1>
+        
+        <div class="section-intro">
+            <p><strong>Étudiant en 2ème année de BTS SIO option SISR</strong>, j'ai effectué un stage de 5 semaines chez BEERUS TECH à Saint Mandé. Ce stage fait suite à ma 1ère année chez IRIS PLAN DE VIDEOPROTECTION.</p>
+        </div>
+
+        <h2>Contexte particulier du stage</h2>
+        <p>Lors de ce stage, <strong>mon tuteur Samy Hamitouche n'était pas toujours disponible</strong> pour m'accompagner directement. Il m'a donné quelques missions à explorer de manière autonome, mais sans vraiment pouvoir me suivre au jour le jour.</p>
+
+        <p>J'ai donc dû <strong>me débrouiller</strong> pour trouver des choses à faire et apprendre. J'ai regardé les projets en cours rapidement, et j'ai utilisé l'IA pour mieux comprendre les concepts que je n'avais pas saisis.</p>
+
+        <h2>Missions proposées</h2>
+        <p>Samy m'a parlé de deux domaines :</p>
+        <ul>
+            <li>Tests de configurations réseau en cloud</li>
+            <li>Mise en place d'un CDN pour une application</li>
+        </ul>
+    </div>
+
+    <!-- PRÉSENTATION ENTREPRISE -->
+    <div class="page">
+        <h1>2. BEERUS TECH</h1>
+        
+        <h2>C'est quoi ?</h2>
+        <p>BEERUS TECH est une petite entreprise (environ 15 personnes) qui travaille sur des <strong>projets cloud</strong> et d'<strong>infrastructure réseau</strong>. Elle aide les entreprises à migrer vers le cloud et à optimiser leurs systèmes.</p>
+
+        <h2>Ce qu'ils font</h2>
+        <ul>
+            <li>Projets sur Google Cloud Platform</li>
+            <li>Configuration de réseaux et performance</li>
+            <li>Déploiement d'applications en cloud</li>
+        </ul>
+
+        <h2>Ambiance</h2>
+        <p>C'est une petite structure, donc beaucoup d'autonomie pour les stagiaires. Ce qui dans mon cas signifiait : "Débrouille-toi, tu verras bien ce qu'il y a à faire".</p>
+    </div>
+
+    <!-- DÉROULEMENT DU STAGE -->
+    <div class="page">
+        <h1>3. Déroulement du stage</h1>
+        
+        <h2>Semaines 1-2 : Découverte</h2>
+        <p>J'ai regardé rapidement comment fonctionnait BEERUS TECH. J'ai vu qu'ils travaillaient sur des projets cloud, mais sans vraiment rentrer dedans. Mon tuteur était assez occupé, donc j'étais surtout observateur.</p>
+
+        <h2>Semaines 3-4 : Les deux missions</h2>
+        <p>Samy m'a dit "il y a deux trucs qui te peuvent intéresser" :</p>
+
+        <h3>Mission 1 : Tests réseau</h3>
+        <p>Idea : vérifier que les configurations réseau en cloud fonctionnent bien. J'ai regardé très rapidement comment ça marche. C'est des tests basiques (ping, voir si ça répond). Honnêtement j'ai pas trop approfondi, mais j'ai pigé le concept.</p>
+
+        <h3>Mission 2 : CDN pour une app</h3>
+        <p>Il y a une application appelée Smart Sport Coaching. Samy m'a expliqué qu'ils voulaient faire un CDN (réseau de cache) pour que ça charge plus vite. C'est grosso modo : "stocker le contenu près des utilisateurs pour que ce soit rapide".</p>
+
+        <p>J'ai regardé comment Google Cloud propose ça, mais franchement j'ai pas entré dans les détails techniques. J'ai compris l'idée générale : cache distribué = meilleure performance.</p>
+
+        <h2>Semaine 5 : Fin de stage</h2>
+        <p>Pas grand chose à faire cette dernière semaine. J'ai finalisé ce rapport et discuté rapidement avec Samy sur ce que j'avais vu.</p>
+    </div>
+
+    <!-- CE QUE J'AI DÉCOUVERT -->
+    <div class="page">
+        <h1>4. Ce que j'ai découvert</h1>
+        
+        <h2>Le cloud c'est quoi vraiment</h2>
+        <p>Avant ce stage, c'était flou. Maintenant je sais que c'est juste des serveurs ailleurs, gérés par des entreprises comme Google ou Amazon. Et ça se configure via une interface web.</p>
+
+        <h2>Les tests réseau c'est important</h2>
+        <p>Avant de lancer quelque chose en production, il faut vérifier que ça marche. C'est pas glamour mais c'est essentiel.</p>
+
+        <h2>La performance c'est monnayable</h2>
+        <p>Un CDN c'est juste une optimisation, mais ça a un vrai impact : les utilisateurs ont une meilleure expérience, donc ils restent plus longtemps. C'est un élément stratégique.</p>
+
+        <h2>L'IA c'est utile pour apprendre</h2>
+        <p>Sans accès direct à quelqu'un pour expliquer, j'ai utilisé l'IA pour poser des questions sur les concepts. Ça m'a aidé à comprendre sans que ce soit trop compliqué.</p>
+    </div>
+
+    <!-- CONCLUSION -->
+    <div class="page">
+        <h1>5. Conclusion</h1>
+        
+        <p><strong>Stage particulier :</strong> Pas l'expérience classique où on a un tuteur très présent. Mais du coup j'ai développé de l'autonomie et j'ai dû apprendre par moi-même.</p>
+
+        <p><strong>Ce que je retiens :</strong></p>
+        <ul>
+            <li>✅ Le cloud existe et c'est important</li>
+            <li>✅ Les concepts clés : tests réseau, optimisation de performance (CDN)</li>
+            <li>✅ L'autonomie c'est une compétence</li>
+        </ul>
+
+        <p><strong>Franchement :</strong> Je n'ai pas une compréhension ultra-profonde de tout ça. J'ai regardé en diagonal, j'ai pigé les grandes lignes. Mais j'ai vu comment ça marche en pratique dans une vrai entreprise.</p>
+
+        <div class="section-intro">
+            <p><strong>Merci à Samy</strong> de m'avoir proposé ce stage, même si les conditions étaient pas idéales pour un suivi en détail. Ça m'a forcé à apprendre à me débrouiller, ce qui est probablement plus utile que si j'avais juste suivi quelqu'un à la lettre.</p>
+        </div>
+
+        <p style="margin-top: 3rem; text-align: center; color: #2ba8c6; font-weight: bold;">— Fin du rapport —</p>
+    </div>
+
+</body>
+</html>

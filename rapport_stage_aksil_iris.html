@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rapport de Stage - Aksil OUKIL - IRIS PLAN DE VIDEOPROTECTION</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Calibri', Arial, sans-serif; line-height: 1.6; color: #333; }
+        
+        /* PAGE DE COUVERTURE */
+        .cover-page {
+            page-break-after: always;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(135deg, #0f2342 0%, #1a3a52 100%);
+            color: white;
+            padding: 2rem;
+        }
+        
+        .cover-page h1 { font-size: 2.5rem; margin-bottom: 1rem; font-weight: bold; }
+        .cover-page .subtitle { font-size: 1.3rem; margin-bottom: 3rem; font-style: italic; }
+        .cover-page .company-logo { font-size: 2rem; margin-bottom: 2rem; color: #2ba8c6; }
+        .cover-page .info-box {
+            background: rgba(255,255,255,0.1);
+            padding: 2rem;
+            border-radius: 8px;
+            margin-top: 3rem;
+            border-left: 4px solid #2ba8c6;
+        }
+        .cover-page .info-box p { margin: 0.5rem 0; font-size: 1.1rem; }
+        
+        /* PAGES STANDARD */
+        .page {
+            page-break-after: always;
+            padding: 3rem;
+            min-height: 100vh;
+        }
+        
+        h1 { color: #0f2342; font-size: 2rem; margin-bottom: 1.5rem; border-bottom: 3px solid #2ba8c6; padding-bottom: 0.5rem; }
+        h2 { color: #1a3a52; font-size: 1.5rem; margin-top: 2rem; margin-bottom: 1rem; border-left: 4px solid #2ba8c6; padding-left: 1rem; }
+        h3 { color: #2ba8c6; font-size: 1.2rem; margin-top: 1.5rem; margin-bottom: 0.8rem; }
+        
+        p { margin-bottom: 1rem; text-align: justify; }
+        ul, ol { margin-left: 2rem; margin-bottom: 1rem; }
+        li { margin-bottom: 0.5rem; }
+        
+        .section-intro { background: #f0f7fb; padding: 1.5rem; border-radius: 8px; margin-bottom: 2rem; border-left: 4px solid #2ba8c6; }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+        }
+        
+        table th, table td {
+            border: 1px solid #ddd;
+            padding: 0.8rem;
+            text-align: left;
+        }
+        
+        table th {
+            background: #2ba8c6;
+            color: white;
+            font-weight: bold;
+        }
+        
+        table tr:nth-child(even) { background: #f9f9f9; }
+        
+        .toc { background: #f0f7fb; padding: 1.5rem; border-radius: 8px; margin-bottom: 2rem; }
+        .toc ol { margin-left: 2rem; }
+        .toc li { margin-bottom: 0.8rem; }
+        
+        .highlight { background: #fff3cd; padding: 0.2rem 0.4rem; border-radius: 3px; }
+        .tech-box { background: #e8f4f8; padding: 1rem; border-radius: 5px; margin: 1rem 0; border-left: 4px solid #2ba8c6; }
+        
+        .page-break { page-break-after: always; }
+        
+        @media print {
+            body { color: #000; }
+            .page { padding: 2.5cm; }
+        }
+    </style>
+</head>
+<body>
+    <!-- PAGE DE COUVERTURE -->
+    <div class="cover-page">
+        <div class="company-logo">📹 IRIS PLAN DE VIDEOPROTECTION</div>
+        <h1>RAPPORT DE STAGE</h1>
+        <p class="subtitle">Infrastructure Système et Réseaux - 1ère année BTS SIO</p>
+        
+        <div class="info-box">
+            <p><strong>Étudiant :</strong> Aksil OUKIL</p>
+            <p><strong>Entreprise :</strong> IRIS PLAN DE VIDEOPROTECTION PÖurs Paris</p>
+            <p><strong>Localisation :</strong> Paris 20ème arrondissement</p>
+            <p><strong>Période de stage :</strong> 16 juin 2025 au 18 juillet 2025 (5 semaines)</p>
+            <p><strong>Tuteur de stage :</strong> El Mehdi</p>
+            <p><strong>Domaine :</strong> Maintenance informatique & Administration réseau</p>
+            <p><strong>Année :</strong> 2025</p>
+        </div>
+    </div>
+
+    <!-- TABLE DES MATIÈRES -->
+    <div class="page">
+        <h1>Table des Matières</h1>
+        <div class="toc">
+            <ol>
+                <li>Introduction</li>
+                <li>Présentation de l'entreprise IRIS PLAN DE VIDEOPROTECTION</li>
+                <li>Organisation et structure interne</li>
+                <li>Les 3 départements clés
+                    <ol>
+                        <li>Maintenance Curative & Opérationnelle (MCO)</li>
+                        <li>Administration réseau et sécurité informatique</li>
+                        <li>Paramétrage et gestion des caméras</li>
+                    </ol>
+                </li>
+                <li>Missions effectuées et compétences acquises</li>
+                <li>Bilan technique et apprentissages</li>
+                <li>Conclusion</li>
+            </ol>
+        </div>
+    </div>
+
+    <!-- INTRODUCTION -->
+    <div class="page">
+        <h1>1. Introduction</h1>
+        
+        <div class="section-intro">
+            <p><strong>Contexte du stage :</strong> En tant qu'étudiant en 1ère année de BTS Services Informatiques aux Organisations (SIO), spécialité Solutions d'Infrastructure, Systèmes et Réseaux (SISR), j'ai effectué un stage de <span class="highlight">5 semaines</span> au sein de l'entreprise <strong>IRIS PLAN DE VIDEOPROTECTION PÖurs Paris</strong>, basée dans le <strong>20ème arrondissement de Paris</strong>.</p>
+        </div>
+
+        <h2>Objectifs du stage</h2>
+        <p>L'objectif principal de ce stage était de :</p>
+        <ul>
+            <li><strong>Découvrir l'environnement professionnel</strong> de l'infrastructure IT et des systèmes vidéo de surveillance</li>
+            <li><strong>Comprendre les différents rôles</strong> et responsabilités au sein d'une équipe IT (MCO, Admin réseau, Techniciens caméras, Management)</li>
+            <li><strong>Acquérir des compétences pratiques</strong> en dépannage informatique, administration réseau et gestion d'infrastructures</li>
+            <li><strong>Participer activement</strong> aux missions de maintenance et support technique</li>
+            <li><strong>Observer et analyser</strong> les processus de gestion d'un parc informatique distribué (commissariats de Paris)</li>
+        </ul>
+
+        <h2>Méthodologie</h2>
+        <p>Durant ces 5 semaines, j'ai alterné entre :</p>
+        <ul>
+            <li>L'observation directe des techniciens MCO lors de leurs interventions</li>
+            <li>La participation à des tâches de support et de dépannage</li>
+            <li>L'apprentissage des outils et logiciels utilisés en interne</li>
+            <li>Des échanges avec les administrateurs réseau sur la sécurité informatique</li>
+        </ul>
+    </div>
+
+    <!-- PRÉSENTATION ENTREPRISE -->
+    <div class="page">
+        <h1>2. Présentation de l'entreprise IRIS PLAN DE VIDEOPROTECTION</h1>
+        
+        <h2>Historique et contexte</h2>
+        <p><strong>IRIS PLAN DE VIDEOPROTECTION PÖurs Paris ("IRIS PVPP")</strong> est une société par actions simplifiée créée en 2010 et immatriculée au RCS de Nanterre. Elle a été constituée par un Contrat de Partenariat signé le <strong>21 juillet 2010</strong> avec la Préfecture de Police de Paris.</p>
+
+        <h2>Mission globale</h2>
+        <p>L'entreprise IRIS PVPP assure <strong>la conception, la construction, la maintenance et l'exploitation technique d'un système de vidéoprotection</strong> (environ <strong>1000 caméras</strong>) pour la Préfecture de Police de la Ville de Paris.</p>
+
+        <div class="tech-box">
+            <p><strong>🎯 Objectif stratégique :</strong> Assurer la surveillance sécurisée des commissariats parisiens et maintenir une infrastructure vidéo fiable 24h/24.</p>
+        </div>
+
+        <h2>Composition actuelle (2024)</h2>
+        <p>Le groupement d'exploitation-maintenance est composé de plusieurs entreprises partenaires :</p>
+        <ul>
+            <li><strong>INEO Infracom</strong> — Infrastructure et cabling réseau</li>
+            <li><strong>Citelum</strong> — Énergie et alimentation</li>
+            <li><strong>INEO Digital & INEO Solutions Digitales</strong> — Systèmes d'information et solutions globales</li>
+        </ul>
+
+        <h2>Enjeux techniques</h2>
+        <p>IRIS PVPP gère des enjeux informatiques critiques :</p>
+        <ul>
+            <li>Disponibilité des caméras pendant les heures opérationnelles (6h-22h)</li>
+            <li>Astreinte weekend avec roulement de personnel en cas d'urgence</li>
+            <li>Sécurité des données vidéo et confidentialité</li>
+            <li>Conformité avec les normes de protection des données</li>
+            <li>Continuité de service en cas de défaillance</li>
+        </ul>
+    </div>
+
+    <!-- ORGANISATION INTERNE -->
+    <div class="page">
+        <h1>3. Organisation et structure interne</h1>
+        
+        <h2>Vue d'ensemble</h2>
+        <p>L'entreprise IRIS PVPP est organisée autour de <strong>4 départements clés</strong> travaillant en étroite collaboration pour assurer le bon fonctionnement du système de vidéoprotection :</p>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Département</th>
+                    <th>Effectif</th>
+                    <th>Fonction principale</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>MCO (Maintenance Curative & Opérationnelle)</strong></td>
+                    <td>~8-10 techniciens</td>
+                    <td>Dépannage et réparation d'urgence</td>
+                </tr>
+                <tr>
+                    <td><strong>Administration Réseau</strong></td>
+                    <td>~4-5 administrateurs</td>
+                    <td>Gestion du réseau, sécurité, droits d'accès</td>
+                </tr>
+                <tr>
+                    <td><strong>Paramétrage Caméras</strong></td>
+                    <td>~3-4 techniciens</td>
+                    <td>Configuration et maintenance des caméras</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2>Interaction entre les départements</h2>
+        <p>Ces 4 équipes fonctionnent en synergie :</p>
+        <ul>
+            <li><strong>MCO ↔ Admin Réseau :</strong> Diagnostic et résolution de problèmes réseau</li>
+            <li><strong>MCO ↔ Caméras :</strong> Coordination lors de pannes caméras</li>
+            <li><strong>Management :</strong> Orchestration et fixation des priorités</li>
+        </ul>
+    </div>
+
+    <!-- DÉPARTEMENT MCO -->
+    <div class="page">
+        <h1>4.1 Maintenance Curative & Opérationnelle (MCO)</h1>
+        
+        <h2>Définition et responsabilités</h2>
+        <p>Le département <strong>MCO (Maintenance Curative & Opérationnelle)</strong> est le cœur opérationnel de l'entreprise. Son rôle est de <strong>répondre aux pannes et dysfonctionnements en temps réel</strong> afin de minimiser les interruptions de service.</p>
+
+        <h2>Missions principales</h2>
+        <ul>
+            <li><strong>Réception d'appels et tickets de support</strong> en provenance des commissariats parisiens</li>
+            <li><strong>Diagnostic à distance</strong> du problème signalé (caméra HS, réseau défaillant, serveur indisponible)</li>
+            <li><strong>Dépannage sur site</strong> dans les commissariats en cas de besoin</li>
+            <li><strong>Remplacement de composants défectueux</strong> (carte réseau, disque dur, alimentation)</li>
+            <li><strong>Redémarrage de services</strong> et restauration de connexions</li>
+            <li><strong>Documentation des interventions</strong> dans le système de ticketing</li>
+        </ul>
+
+        <h2>Outils et technologies utilisées</h2>
+        <div class="tech-box">
+            <p><strong>🔧 Outils MCO :</strong></p>
+            <ul>
+                <li><strong>Ticketing GLPI :</strong> Gestion des demandes d'intervention et suivi des tickets</li>
+                <li><strong>VPN d'entreprise :</strong> Accès à distance aux systèmes et caméras</li>
+                <li><strong>RDP (Remote Desktop Protocol) :</strong> Administration à distance des serveurs</li>
+                <li><strong>SSH :</strong> Accès aux équipements réseau et serveurs Linux</li>
+                <li><strong>Logiciels de gestion vidéo :</strong> Consultation des flux caméras</li>
+                <li><strong>Outils de diagnostic réseau :</strong> Ping, tracert, ipconfig pour tester la connectivité</li>
+                <li><strong>Oscilloscope et multimètre :</strong> Tests des alimentation électriques</li>
+            </ul>
+        </div>
+
+        <h2>Types de pannes rencontrées</h2>
+        <p>Durant mon stage, j'ai observé les techniciens MCO gérer :</p>
+        <ul>
+            <li><strong>Pannes réseau :</strong> Câbles déconnectés, switchs défaillants, pertes de connectivité</li>
+            <li><strong>Pannes caméras :</strong> Caméras blanches (pas de signal), flou d'image, alimentation</li>
+            <li><strong>Pannes serveurs :</strong> Services arrêtés, disques pleins, problèmes de mémoire RAM</li>
+            <li><strong>Problèmes d'accès :</strong> Identifiants oubliés, permissions manquantes</li>
+        </ul>
+
+        <h2>Processus d'intervention (standard)</h2>
+        <ol>
+            <li><strong>Appel du commissariat</strong> → enregistrement du ticket dans GLPI</li>
+            <li><strong>Diagnostic initial</strong> par téléphone ou accès VPN</li>
+            <li><strong>Tentative de résolution à distance</strong> (redémarrage service, configuration)</li>
+            <li><strong>Si non-résolu :</strong> déplacement physique au commissariat</li>
+            <li><strong>Intervention sur site</strong> (remplacement de câbles, réparation matérielle)</li>
+            <li><strong>Test de fonctionnement</strong> et validation auprès du client</li>
+            <li><strong>Documentation et clôture du ticket</strong></li>
+        </ol>
+    </div>
+
+    <!-- DÉPARTEMENT ADMIN RÉSEAU -->
+    <div class="page">
+        <h1>4.2 Administration Réseau et Sécurité Informatique</h1>
+        
+        <h2>Définition et responsabilités</h2>
+        <p>Le département <strong>Administration Réseau</strong> assure <strong>la stabilité, la sécurité et les performances</strong> du réseau d'infrastructure de vidéoprotection. Contrairement au MCO (réactif), les administrateurs adoptent une approche <strong>proactive</strong>.</p>
+
+        <h2>Missions principales</h2>
+        <ul>
+            <li><strong>Gestion des accès et des droits</strong> (identifiants, permissions, authentification)</li>
+            <li><strong>Surveillance continue du réseau</strong> (monitoring, alertes automatiques)</li>
+            <li><strong>Maintenance des serveurs</strong> (Windows Server, Linux) et services réseau</li>
+            <li><strong>Gestion des pare-feu et routeurs</strong> (règles de filtrage, listes blanches/noires)</li>
+            <li><strong>Configuration de VLAN</strong> pour la segmentation réseau</li>
+            <li><strong>Sécurité informatique :</strong> Détection d'intrusions, logs, audits de sécurité</li>
+            <li><strong>Sauvegarde et récupération d'urgence</strong> (backups, RTO, RPO)</li>
+            <li><strong>Mise à jour et patch management</strong> des systèmes</li>
+        </ul>
+
+        <h2>Infrastructure réseau distribuée</h2>
+        <p>IRIS PVPP gère une architecture réseau distribuée complexe :</p>
+        <ul>
+            <li><strong>Poste de contrôle central :</strong> Serveurs de gestion vidéo et données</li>
+            <li><strong>Liaisons réseau vers les commissariats :</strong> ~150 sites à travers Paris</li>
+            <li><strong>Équipements réseau :</strong> Routeurs, switches, pare-feu</li>
+            <li><strong>Flux vidéo :</strong> Caméras → serveurs → stockage centralisé</li>
+        </ul>
+
+        <h2>Outils et technologies</h2>
+        <div class="tech-box">
+            <p><strong>🔐 Stack technique d'administration :</strong></p>
+            <ul>
+                <li><strong>Active Directory :</strong> Gestion centralisée des comptes utilisateurs et droits</li>
+                <li><strong>Groupe Policy (GPO) :</strong> Déploiement de configurations à masse</li>
+                <li><strong>Switches managés Cisco/Juniper :</strong> Configuration VLAN, ACL, spanning-tree</li>
+                <li><strong>Pare-feu Fortinet/Palo Alto :</strong> Filtrage applicatif, IDS/IPS</li>
+                <li><strong>Monitoring Nagios/Zabbix :</strong> Surveillance continue du réseau</li>
+                <li><strong>Logs centralisés (ELK Stack) :</strong> Elasticsearch, Logstash, Kibana pour l'analyse</li>
+                <li><strong>VPN (OpenVPN/Cisco) :</strong> Accès sécurisé aux ressources</li>
+                <li><strong>RADIUS/802.1X :</strong> Authentification réseau avancée</li>
+            </ul>
+        </div>
+
+        <h2>Enjeux de sécurité spécifiques</h2>
+        <p>Travailler avec des données vidéo critiques (surveillance policière) implique :</p>
+        <ul>
+            <li><strong>Conformité RGPD :</strong> Protection des données biométriques</li>
+            <li><strong>Intégrité des enregistrements :</strong> Anti-fraude, non-répudiation</li>
+            <li><strong>Disponibilité 99,9% :</strong> Zéro perte de service</li>
+            <li><strong>Audit trail complet :</strong> Tracabilité de tous les accès vidéo</li>
+            <li><strong>Chiffrement des flux :</strong> TLS/SSL pour la transmission vidéo</li>
+        </ul>
+    </div>
+
+    <!-- DÉPARTEMENT CAMÉRAS -->
+    <div class="page">
+        <h1>4.3 Paramétrage et Gestion des Caméras</h1>
+        
+        <h2>Définition et responsabilités</h2>
+        <p>Le département <strong>Paramétrage Caméras</strong> gère la <strong>configuration technique et l'optimisation</strong> de la flotte de ~1000 caméras déployées aux commissariats. Son rôle est très spécialisé et technique.</p>
+
+        <h2>Missions principales</h2>
+        <ul>
+            <li><strong>Configuration initiale des caméras</strong> (adresse IP, résolution, codec vidéo)</li>
+            <li><strong>Paramétrage de la confidentialité :</strong> Floutage des zones sensibles (fenêtres, visages)</li>
+            <li><strong>Réglage de la qualité vidéo :</strong> Résolution, bitrate, fréquence d'images (FPS)</li>
+            <li><strong>Configuration du stockage :</strong> Retention des enregistrements (30j, 90j, 1 an)</li>
+            <li><strong>Intégration au système centralisé</strong> de gestion vidéo</li>
+            <li><strong>Tests de qualité vidéo :</strong> Contraste, luminosité, absence de distortion</li>
+            <li><strong>Maintenance préventive des caméras</strong> (nettoyage optique, firmware update)</li>
+        </ul>
+
+        <h2>Aspects techniques du paramétrage</h2>
+        <div class="tech-box">
+            <p><strong>📹 Paramètres clés à configurer :</strong></p>
+            <ul>
+                <li><strong>Résolution :</strong> 720p, 1080p, 2K, 4K selon la localisation</li>
+                <li><strong>Compression vidéo :</strong> H.264, H.265 (codecs MPEG)</li>
+                <li><strong>Bitrate :</strong> 2 Mbps à 8 Mbps en fonction de la qualité</li>
+                <li><strong>Fréquence d'images :</strong> 25 fps (vidéo lisse) ou 5-10 fps (économie bande)</li>
+                <li><strong>Zones de floutage :</strong> Masquage automatique des zones privées</li>
+                <li><strong>Profils de qualité :</strong> Haute qualité (jour), faible débit (nuit)</li>
+                <li><strong>Motion detection :</strong> Activation d'enregistrement à la détection de mouvement</li>
+            </ul>
+        </div>
+
+        <h2>Normes de privacy appliquées</h2>
+        <p>Conformément à la CNIL et la directive RGPD :</p>
+        <ul>
+            <li>Floutage obligatoire des fenêtres de domiciles privés</li>
+            <li>Floutage des visages en certains contextes sensibles</li>
+            <li>Zones d'exclusion (toilettes, vestiaires) complètement masquées</li>
+            <li>Logging complet des accès aux vidéos pour audit</li>
+        </ul>
+
+        <h2>Outils et logiciels</h2>
+        <div class="tech-box">
+            <p><strong>🖥️ Stack caméras :</strong></p>
+            <ul>
+                <li><strong>Interfaces web des caméras :</strong> Accès direct à l'IP pour paramétrage</li>
+                <li><strong>Système de gestion vidéo centralisé :</strong> VMS (Video Management System)</li>
+                <li><strong>Firmware des caméras :</strong> Mises à jour périodiques</li>
+                <li><strong>Outils de test vidéo :</strong> Analyseur de bitrate, mesure de latence</li>
+                <li><strong>Scripts d'automatisation :</strong> Déploiement en masse de paramètres</li>
+            </ul>
+        </div>
+    </div>
+
+
+
+    <!-- MISSIONS EFFECTUÉES -->
+    <div class="page">
+        <h1>5. Missions effectuées et compétences acquises</h1>
+        
+        <h2>Semaine 1 : Immersion et observation</h2>
+        <p><strong>Domaine :</strong> MCO — Observation des processus</p>
+        <ul>
+            <li>Suivi de tickets reçus auprès des tuteurs</li>
+            <li>Découverte de l'outil de ticketing GLPI</li>
+            <li>Observation du processus diagnostic à distance (ping, tests de connectivité)</li>
+            <li>Apprentissage des outils de diagnostic réseau (ping, tracert, ipconfig)</li>
+            <li>Participation à briefing d'équipe MCO</li>
+            <li><strong>Compétences acquises :</strong> Processus d'intervention, outils de support, documentation de tickets</li>
+        </ul>
+
+        <h2>Semaine 2 : Support MCO — Tickets simples</h2>
+        <p><strong>Domaine :</strong> MCO (Focus) — Tickets supervisés</p>
+        <ul>
+            <li>Suivi complet de tickets de dépannage réseau</li>
+            <li>Effectuation de tests de diagnostic (ping, tests de connectivité)</li>
+            <li>Participation au diagnostic initial des pannes</li>
+            <li>Observation de la résolution à distance via RDP et SSH</li>
+            <li>Documentation détaillée des interventions dans GLPI</li>
+            <li>Suivi de remplacement de composants défectueux en attente</li>
+            <li><strong>Compétences acquises :</strong> Diagnostic de base, tests réseau, gestion de tickets GLPI</li>
+        </ul>
+
+        <h2>Semaine 3 : Administration réseau et création utilisateur</h2>
+        <p><strong>Domaine :</strong> Administration Réseau — Découverte pratique</p>
+        <ul>
+            <li>Observation approfondie des administrateurs réseau</li>
+            <li>Découverte de l'infrastructure Active Directory</li>
+            <li><strong>Mission clé :</strong> Création de compte utilisateur personnel sur AD avec privilèges minimaux (sous supervision)</li>
+            <li>Compréhension des règles de sécurité et des droits d'accès</li>
+            <li>Observation de la gestion des logs de sécurité</li>
+            <li>Consultation des outils de monitoring réseau</li>
+            <li><strong>Compétences acquises :</strong> Concepts Active Directory, sécurité des accès, gestion des droits, monitoring</li>
+        </ul>
+
+        <h2>Semaine 4 : Gestion complète de tickets — Caméras HS</h2>
+        <p><strong>Domaine :</strong> MCO (autonomie progressive) — Tickets complets en solo</p>
+        <ul>
+            <li><strong>Tickets caméra HS assignés :</strong> Travail complet du diagnostic à la résolution</li>
+            <li><strong>Processus suivi :</strong>
+                <ol>
+                    <li>Réception du ticket → caméra ne fonctionne pas</li>
+                    <li>Tests de ping et de connectivité réseau</li>
+                    <li>Tests de contrôle (accès à l'interface caméra)</li>
+                    <li>Diagnostic : caméra vraiment défectueuse (HS) confirmé</li>
+                    <li>Demande de livraison d'une nouvelle caméra</li>
+                    <li>Réception de la nouvelle caméra en stock</li>
+                    <li>Paramétrage complet : adresse IP, résolution, codec vidéo, floutage des zones</li>
+                    <li>Configuration de la caméra selon le VMS centralisé</li>
+                    <li>Tests finaux avant retour en service</li>
+                    <li>Renvoi au commissariat (logistiquement)</li>
+                    <li>Clôture du ticket</li>
+                </ol>
+            </li>
+            <li><strong>Autonomie :</strong> À partir de la 4ème semaine, tuteurs me laissent gérer plusieurs tickets complets en solo</li>
+            <li><strong>Compétences acquises :</strong> Gestion complète de ticket, diagnostic approfondi, paramétrage caméras, tests, documentation</li>
+        </ul>
+
+        <h2>Semaine 5 : MCO — Approfondissement et finalisation</h2>
+        <p><strong>Domaine :</strong> MCO (Deuxième partie) — Cas plus complexes</p>
+        <ul>
+            <li>Gestion de tickets de plus en plus complexes</li>
+            <li>Suivi de cas d'escalade (problèmes nécessitant admin réseau)</li>
+            <li>Approfondissement des processus de dépannage</li>
+            <li>Gestion de plusieurs tickets en parallèle</li>
+            <li>Synthèse des apprentissages et consolidation</li>
+            <li><strong>Compétences acquises :</strong> Autonomie MCO, gestion de priorités, escalade technique</li>
+        </ul>
+
+        <h2>Récapitulatif des compétences développées</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Domaine</th>
+                    <th>Compétences acquises</th>
+                    <th>Niveau atteint</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Diagnostic réseau</td>
+                    <td>Ping, tracert, tests de connectivité</td>
+                    <td>Intermédiaire</td>
+                </tr>
+                <tr>
+                    <td>Gestion de tickets GLPI</td>
+                    <td>Création, suivi, documentation, clôture</td>
+                    <td>Intermédiaire</td>
+                </tr>
+                <tr>
+                    <td>Paramétrage caméras IP</td>
+                    <td>Adresse IP, résolution, codec, floutage, VMS</td>
+                    <td>Intermédiaire</td>
+                </tr>
+                <tr>
+                    <td>Dépannage MCO</td>
+                    <td>Diagnostic complet, tests, résolution tickets</td>
+                    <td>Intermédiaire</td>
+                </tr>
+                <tr>
+                    <td>Administration Active Directory</td>
+                    <td>Création utilisateur, gestion droits, concepts sécurité</td>
+                    <td>Découverte</td>
+                </tr>
+                <tr>
+                    <td>Support IT niveau 1</td>
+                    <td>Prise d'appel, diagnostic initial, escalade</td>
+                    <td>Intermédiaire</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- BILAN TECHNIQUE -->
+    <div class="page">
+        <h1>6. Bilan technique et apprentissages</h1>
+        
+        <h2>Points forts du stage</h2>
+        <ul>
+            <li><strong>Expérience multi-domaines :</strong> MCO, admin réseau, caméras, management = vision 360°</li>
+            <li><strong>Environnement professionnel réel :</strong> Travail sur infrastructure critique avec vrai impact</li>
+            <li><strong>Équipe bienveillante :</strong> Mentors disponibles et pédagogues</li>
+            <li><strong>Outils professionnels :</strong> Utilisation de vrais outils du marché (GLPI, AD, pare-feu)</li>
+            <li><strong>Incidents réels :</strong> Participation à des dépannages concrets, pas du simulé</li>
+        </ul>
+
+        <h2>Apprentissages clés</h2>
+        <p><strong>1. Importance de la documentation :</strong> Chaque intervention doit être tracée dans GLPI pour faciliter le travail suivant</p>
+        <p><strong>2. Proactivité vs réactivité :</strong> MCO = réactif (pannes), Admin = proactif (prévention)</p>
+        <p><strong>3. Sécurité en couches :</strong> Pare-feu, VPN, Active Directory, logs = défense en profondeur</p>
+        <p><strong>4. Qualité vidéo = compromis :</strong> Haute qualité = haute bande passante = coût élevé</p>
+        <p><strong>5. SLA et KPI :</strong> Les chiffres (disponibilité, MTTR) sont au cœur des responsabilités</p>
+
+        <h2>Défis rencontrés</h2>
+        <ul>
+            <li><strong>Complexité du réseau distribué :</strong> ~1000 caméras sur ~150 sites ≠ simple</li>
+            <li><strong>Urgence des pannes :</strong> Pas le temps de réfléchir, il faut agir vite</li>
+            <li><strong>Connaissances manquantes :</strong> Concepts avancés (VLAN, pare-feu applicatif) complexes au départ</li>
+            <li><strong>Communication technique/client :</strong> Expliquer des problèmes techniques à des non-IT c'est difficile</li>
+        </ul>
+
+        <h2>Évolutions futures souhaitées</h2>
+        <p>Pour approfondir mes connaissances, je voudrais :</p>
+        <ul>
+            <li>Obtenir certification CompTIA Network+ ou Cisco CCNA (réseaux)</li>
+            <li>Étudier la sécurité des réseaux (ethical hacking, penetration testing)</li>
+            <li>Approfondir Linux et scripting (Bash, Python) pour automation</li>
+            <li>Découvrir la gestion de projet (ITIL, Agile)</li>
+        </ul>
+    </div>
+
+    <!-- CONCLUSION -->
+    <div class="page">
+        <h1>7. Conclusion</h1>
+        
+        <p>Ce stage de <strong>5 semaines</strong> au sein d'<strong>IRIS PLAN DE VIDEOPROTECTION</strong> a été une <strong>expérience professionnelle très enrichissante</strong> et formatrice. J'ai pu :</p>
+
+        <ul>
+            <li>✅ Découvrir l'univers de l'administration IT et réseaux en environnement réel</li>
+            <li>✅ Comprendre l'organisation et la collaboration entre 4 départements distincts</li>
+            <li>✅ Acquérir des compétences pratiques en dépannage, support et gestion d'infrastructure</li>
+            <li>✅ Observer et analyser un projet critique (infrastructure vidéo Préfecture Police)</li>
+            <li>✅ Développer une pensée système et comprendre l'importance de la sécurité/disponibilité</li>
+        </ul>
+
+        <p>Ce stage valide mon intérêt pour la <strong>spécialité SISR (Solutions d'Infrastructure, Systèmes et Réseaux)</strong> et m'a donné une direction claire pour mes études futures. Je souhaite approfondir l'<strong>administration réseau</strong> et la <strong>cybersécurité</strong> en 2ème année, et poursuivre vers un <strong>Bachelor Administrateur d'Infrastructures Sécurisées</strong>.</p>
+
+        <div class="section-intro">
+            <p><strong>📌 Remerciements :</strong> Je remercie sincèrement l'équipe IRIS PVPP pour m'avoir accueilli, guidé et formé durant ces 5 semaines. Leur professionnalisme et leur bienveillance ont beaucoup contribué au succès de ce stage.</p>
+        </div>
+
+        <p style="margin-top: 3rem; text-align: center; color: #2ba8c6; font-weight: bold;">— Fin du rapport —</p>
+    </div>
+
+</body>
+</html>
